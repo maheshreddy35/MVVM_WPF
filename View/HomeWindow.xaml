@@ -1,12 +1,13 @@
 ﻿<Window x:Class="MVVMApp.View.HomeWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MVVMApp.View"
          xmlns:viewModels="clr-namespace:MVVMApp.ViewModel"
         mc:Ignorable="d"
-        Title="HomeWindow" Height="500" Width="800">
+        Title="HomeWindow" Height="500" Width="850">
     <Window.DataContext>
         <viewModels:MainWindowViewModel/>
     </Window.DataContext>
@@ -17,29 +18,50 @@
         <DataTemplate DataType = "{x:Type viewModels:ProfileViewModel}">
             <local:ProfileView/>
         </DataTemplate>
-    </Window.Resources>
-    <DockPanel Background="AliceBlue" >
+        <DataTemplate DataType = "{x:Type viewModels:ContactViewModel}">
+            <local:ContactView/>
+        </DataTemplate>
+        
+         
 
+    </Window.Resources>
+    <DockPanel x:Name="pnl">
+        <DockPanel.Style>
+            <Style>
+                <Style.Triggers>
+                    <DataTrigger Binding = "{Binding ElementName = theme, Path = IsChecked}" 
+                     Value = "true">
+                        <Setter Property = "DockPanel.Background" Value="LightGray"/>
+                        
+                    </DataTrigger>
+                    <DataTrigger Binding = "{Binding ElementName = theme, Path = IsChecked}" 
+                     Value = "false">
+                        <Setter Property = "DockPanel.Background" Value="AliceBlue"/>
+
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </DockPanel.Style>
         <DockPanel DockPanel.Dock="Top" Background="White" Height="78">
             <StackPanel>
                 <ToggleButton x:Name="Tg_Btn"
                                       Grid.Column="0"
                                       HorizontalAlignment="Left"
                                       Margin="18,10,0,0"
-                                      Height="52"
-                                      Width="50"
+                                     Height="50"
+                              Width="50"
+                              Background="Transparent"
                                       BorderThickness="0" RenderTransformOrigin="0.54,0.259"
                               Visibility="Visible"
+                            
                                        >
 
                     <!--// Toggle button default background image //-->
 
-                    <ToggleButton.Background>
+                    
 
-                        <ImageBrush 
-                                    ImageSource="https://banner2.cleanpng.com/20180628/zaz/kisspng-computer-icons-hamburger-button-menu-new-menu-5b34724be5a1f0.5796308115301637879406.jpg"></ImageBrush>
-
-                    </ToggleButton.Background>
+                        <Icon:PackIconMaterial Kind="Menu" Background="Transparent" Width="25" Height="25"></Icon:PackIconMaterial>
+                   
 
                     <!--// Toggle Button - Checked, Unchecked events //-->
 
@@ -95,21 +117,55 @@
                 </ToggleButton>
 
             </StackPanel>
-            <StackPanel Margin="400,40,0,0"  Orientation="Horizontal">
-                <TextBlock Margin="0,0,40,0" x:Name="Hello" Text="Hello"></TextBlock>
+            <Menu Background="Transparent" BorderBrush="Transparent" Height="50" Width="80" FontSize="14" Margin="30,30,0,0">
+                <MenuItem Header="Menu" Foreground="CadetBlue" FontSize="16"  >
+                    <MenuItem.Icon>
+                        <Icon:PackIconMaterial Kind="MenuDown"></Icon:PackIconMaterial>
+                    </MenuItem.Icon>
+                    <MenuItem Header="Settings" Margin="0,10,0,0">
+                        <MenuItem.Icon>
+                            <Icon:PackIconMaterial Kind="ApplicationSettings"></Icon:PackIconMaterial>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Tools" Margin="0,10,0,0">
+                        <MenuItem.Icon>
+                            <Icon:PackIconMaterial Kind="Tools"></Icon:PackIconMaterial>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Refresh" Margin="0,10,0,0">
+                        <MenuItem.Icon>
+                            <Icon:PackIconMaterial Kind="Refresh"></Icon:PackIconMaterial>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <Separator/>
+                    <MenuItem Header="Themes" Margin="0,10,0,0">
+                        <MenuItem.Icon>
+                            <Icon:PackIconMaterial Kind="ThemeLightDark"></Icon:PackIconMaterial>
+                        </MenuItem.Icon>
+                        <CheckBox x:Name = "theme" 
+         Content = "Dark Mode"/>
+                       
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+            <StackPanel Margin="10,10,0,0"  Orientation="Horizontal" HorizontalAlignment="Right" Height="150">
+               
+                <TextBlock Margin="0,25,30,0" x:Name="Hello" Text="Hello"></TextBlock>
 
-                <TextBlock Margin="0,0,40,0">Help</TextBlock>
+                <TextBlock Margin="0,25,30,0">Help</TextBlock>
 
-                <TextBlock>About Us</TextBlock>
-                
+                <TextBlock Margin="0,25,30,0">About Us</TextBlock>
+                <TextBlock Margin="0,25,30,0" FontStyle="Italic" Foreground="Red">Phonebook!</TextBlock>
+                <Image Source="https://www.psdgraphics.com/file/phone-book-icon.jpg" Height="80" Width="80" HorizontalAlignment="Right" Margin="0,-70,0,0"></Image>
+
             </StackPanel>
-            <Image Source="https://www.psdgraphics.com/file/phone-book-icon.jpg" Height="80" Width="80" HorizontalAlignment="Left" Margin="35,0,0,0"></Image>
+            
         </DockPanel>
-        <DockPanel DockPanel.Dock="Left" Width="0"  Height="400" Background="White" x:Name="nav_pnl" Margin="0,0,0,0" HorizontalAlignment="Left">
+        <DockPanel DockPanel.Dock="Left" Width="0" Background="White" x:Name="nav_pnl" Margin="0,0,0,0" HorizontalAlignment="Left">
 
-            <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Vertical" Margin="0,10,0,0">
                 <StackPanel Width="50" Height="50">
-                    <Button ToolTip="Home" Background="Transparent" BorderBrush="Transparent">
+                    <Button ToolTip="Home" Background="Transparent" BorderBrush="Transparent" Command="{Binding NavCommand}" CommandParameter="home">
                         <Image Source="https://th.bing.com/th/id/OIP.-3QPMuBJSfNpU7CTugOLTwHaHa?pid=ImgDet"
                                        Stretch="Fill"
                                        Margin="0,0,0,0" />
@@ -118,7 +174,7 @@
 
                 </StackPanel>
 
-                <StackPanel Width="50" Height="50">
+                <StackPanel Width="50" Height="50" Margin="0,10,0,0">
                     <Button ToolTip="Contact" Background="Transparent" BorderBrush="Transparent" Command="{Binding NavCommand}" CommandParameter="addcontact">
                         <Image Source="https://th.bing.com/th/id/R.087584d26e16365c5a3686bfdd6b9c42?rik=XUYKGMf6jNZX9A"
                                        Stretch="Fill"
@@ -127,7 +183,7 @@
                     </Button>
 
                 </StackPanel>
-                <StackPanel Width="50" Height="50">
+                <StackPanel Width="50" Height="50" Margin="0,10,0,0">
                     <Button ToolTip="Message" Background="Transparent" BorderBrush="Transparent">
                         <Image Source="https://th.bing.com/th/id/OIP.k7HyX8HEkmurXXBXTjqjVwHaHa?pid=ImgDet"
                                        Stretch="Fill"
@@ -136,7 +192,7 @@
                     </Button>
 
                 </StackPanel>
-                <StackPanel Width="50" Height="50">
+                <StackPanel Width="50" Height="50" Margin="0,10,0,0">
                     <Button ToolTip="Profile" Background="Transparent" BorderBrush="Transparent" Command="{Binding NavCommand}" CommandParameter="profile">
                         <Image Source="https://th.bing.com/th/id/OIP.9hZIrJRe24htGYpJxbfcBwHaHa?pid=ImgDet"
                                        Stretch="Fill"
@@ -145,7 +201,7 @@
                     </Button>
 
                 </StackPanel>
-                <StackPanel Width="50" Height="50">
+                <StackPanel Width="50" Height="50" Margin="0,10,0,0">
                     <Button ToolTip="Settings" Background="Transparent" BorderBrush="Transparent">
                         <Image Source="https://th.bing.com/th/id/OIP.EKKlFfxfVme45CeDZzi6VgHaIF?pid=ImgDet"
                                        Stretch="Fill"
@@ -154,7 +210,7 @@
                     </Button>
 
                 </StackPanel>
-                <StackPanel Width="50" Height="50">
+                <StackPanel Width="50" Height="50" Margin="0,10,0,0">
                     <Button ToolTip="Sign Out" Background="Transparent" BorderBrush="Transparent">
                         <Image Source="https://th.bing.com/th/id/R.38b2da3c1ae5ca4b6ece034fed7ac09e?rik=CGlAas5YJTK4aw"
                                        Stretch="Fill"
@@ -165,7 +221,7 @@
                 </StackPanel>
             </StackPanel>
         </DockPanel>
-        <DockPanel DockPanel.Dock="Right" Background="AliceBlue" Width="796">
+        <DockPanel DockPanel.Dock="Right" Width="796">
             <ContentControl Content = "{Binding CurrentViewModel}" />
         </DockPanel>    
 

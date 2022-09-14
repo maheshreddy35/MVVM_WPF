@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MVVMApp.View"
+             xmlns:local="clr-namespace:MVVMApp.View" xmlns:control="clr-namespace:MVVMApp.customcontrol"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid >
@@ -19,10 +19,10 @@
         </TextBlock>
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="66,169,0,0" Name="textBlock1" Text="Phone Number:" VerticalAlignment="Top" Width="98" Foreground="Black" FontWeight="Bold"/>
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="66,225,0,0" Name="textBlock2" Text="Password:" VerticalAlignment="Top" Width="77" Foreground="Black" RenderTransformOrigin="1.121,0.406" FontWeight="Bold"/>
-        <TextBox Height="24" HorizontalAlignment="Left" Margin="183,168,0,0" Name="textBoxEmail" VerticalAlignment="Top" Width="247" FontSize="14" Text="{Binding User.Email,Mode=TwoWay}"/>
+        <TextBox Height="24" HorizontalAlignment="Left" Margin="183,168,0,0" Name="textBoxEmail" VerticalAlignment="Top" Width="247" FontSize="14" Text="{Binding User.Mobile,Mode=TwoWay}"/>
         <TextBox Height="23" HorizontalAlignment="Left" Margin="183,225,0,0" Name="passwordBox1" VerticalAlignment="Top" Width="247" FontSize="14"  Text="{Binding User.Password,Mode=TwoWay}"/>
-
-        <Button Content="Login" Height="24" HorizontalAlignment="Left" Margin="186,281,0,0" Name="Login" VerticalAlignment="Top" Background="PaleGreen" Width="70" Command="{Binding Path=LoginCommand}" />
+        <control:Custombutton 
+         Content="Login" Height="24" HorizontalAlignment="Left" Margin="186,281,0,0" VerticalAlignment="Top"  Width="70" Command="{Binding Path=LoginCommand}" ></control:Custombutton>
         <TextBlock Height="23" HorizontalAlignment="Left" x:Name ="errormessage" VerticalAlignment="Top" Width="400" Margin="51,113,0,0"  OpacityMask="Crimson" Foreground="#FFE5572C" FontWeight="Bold" FontSize="14" Text="{Binding Errormessage,Mode=TwoWay}" FontStyle="Italic" />
 
 

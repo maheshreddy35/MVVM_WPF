@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVVMApp.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace MVVMApp.View
         public ProfileView()
         {
             InitializeComponent();
+            this.DataContext = new ProfileViewModel();
         }
     }
 }

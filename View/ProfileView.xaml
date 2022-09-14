@@ -3,24 +3,52 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MVVMApp.View"
+             xmlns:local="clr-namespace:MVVMApp.View" xmlns:converters="clr-namespace:MVVMApp.Converters" xmlns:viewmodel="clr-namespace:MVVMApp.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:ProfileViewModel}"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="900">
+    <UserControl.Resources>
+       
+        <converters:BooleanToVisibilityConverter x:Key="boolVisConverter"></converters:BooleanToVisibilityConverter>
+        <converters:AgeConverter x:Key="ageConverter"></converters:AgeConverter>
+    </UserControl.Resources>
     <Grid>
 
-        <Label Content="First Name : " HorizontalAlignment="Left" Margin="100,40,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <TextBox Foreground="Blue" HorizontalAlignment="Left" Margin="250,41,0,0" Text="{Binding Path=Currentuser.FirstName}" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" FontWeight="Normal" FontSize="16"/>
-        <Label Content="Last Name :" HorizontalAlignment="Left" Margin="100,80,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
-        <Label Content="Phone no   :" HorizontalAlignment="Left" Margin="100,120,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
-        <Label Content="Address      :" HorizontalAlignment="Left" Margin="100,160,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" RenderTransformOrigin="0.479,1.619"/>
-        <Label Content="Password    :" HorizontalAlignment="Left" Margin="100,200,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
-        <TextBox Foreground="Blue" HorizontalAlignment="Left" Margin="250,81,0,0" Text="{Binding Path=Currentuser.LastName}" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" FontWeight="Normal" FontSize="16"/>
-        <TextBox Foreground="Blue" HorizontalAlignment="Left" Margin="250,121,0,0" Text="{Binding Path=Currentuser.Email}" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" FontWeight="Normal" FontSize="16"/>
-        <TextBox Foreground="Blue" HorizontalAlignment="Left" Margin="250,161,0,0" Text="{Binding Path=Currentuser.Address}" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" FontWeight="Normal" FontSize="16"/>
-        <TextBox  HorizontalAlignment="Left" Margin="250,201,0,0" Text="{Binding Path=Currentuser.Password}" Foreground="Blue" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" FontWeight="Normal" FontSize="16"/>
-        <Button Content="Save Changes" HorizontalAlignment="Left" Margin="269,265,0,0" Width="100" Height="30" VerticalAlignment="Top" 
-                />
+        <Label Content="First Name : " HorizontalAlignment="Left" Margin="80,40,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <TextBox Foreground="Blue" HorizontalAlignment="Left" Margin="220,40,0,0" Text="{Binding Path=Currentuser.FirstName}" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" FontWeight="Normal" FontSize="16"/>
+        <Label Content="Last Name :" HorizontalAlignment="Left" Margin="80,80,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <Label Content="Phone no   :" HorizontalAlignment="Left" Margin="80,120,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <Label Content="Address      :" HorizontalAlignment="Left" Margin="80,160,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" RenderTransformOrigin="0.479,1.619"/>
+        <Label Content="Password    :" HorizontalAlignment="Left" Margin="80,200,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
+        <TextBox Foreground="Blue" HorizontalAlignment="Left" Margin="220,81,0,0" Text="{Binding Path=Currentuser.LastName}" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" FontWeight="Normal" FontSize="16"/>
+        <TextBox Foreground="Blue" HorizontalAlignment="Left" Margin="220,121,0,0" Text="{Binding Path=Currentuser.Mobile}" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" FontWeight="Normal" FontSize="16"/>
+        <TextBox Foreground="Blue" HorizontalAlignment="Left" Margin="220,161,0,0" Text="{Binding Path=Currentuser.Address}" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" FontWeight="Normal" FontSize="16"/>
+        <TextBox  HorizontalAlignment="Left" Margin="220,201,0,0" Text="{Binding Path=Currentuser.Password}" Foreground="Blue" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" FontWeight="Normal" FontSize="16"
+                  Visibility="{Binding IsVisibleChecked,
+            Converter={StaticResource boolVisConverter},Mode=TwoWay}"/>
 
+        <Image HorizontalAlignment="Left" Height="178" Margin="550,41,0,0" VerticalAlignment="Top" Width="166" Source="{Binding Url}">
+            <Image.OpacityMask>
+                <RadialGradientBrush GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
+                    <GradientStop Color="#ffffffff" Offset="1" />
+                    <GradientStop Color="#00ffffff" Offset="1" />
+                </RadialGradientBrush>
+            </Image.OpacityMask>
+        </Image>
+        <RadioButton Content="Show Password" GroupName="VisibilityRadio" IsChecked="{Binding IsVisibleChecked}" Margin="235,230,0,0" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="140"></RadioButton>
+        <RadioButton GroupName="VisibilityRadio" Margin="380,230,0,0" Content="Hide Password" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="140"></RadioButton>
+        <Label HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,260,0,0" FontWeight="Bold" FontSize="16" Content="Age:" ></Label>
+        <ComboBox Width="100" Margin="220,265,0,0" Height="20" SelectedItem="{Binding Age,Mode=TwoWay}" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <ComboBoxItem>Below 10</ComboBoxItem>
+            <ComboBoxItem>10-17</ComboBoxItem>
+            <ComboBoxItem>18-45</ComboBoxItem>
+            <ComboBoxItem>Above 45</ComboBoxItem>
+        </ComboBox>
+        <TextBlock HorizontalAlignment="Center" Background="White" Width="150" Margin="20,265,0,0" Text="{Binding Age,Converter={StaticResource ageConverter},Mode=TwoWay
+          }" TextWrapping="Wrap" VerticalAlignment="Top" Height="20"/>
 
+        <Button Content="Save Changes" HorizontalAlignment="Left" Margin="220,320,0,0" Width="100" Height="30" VerticalAlignment="Top" Command="{Binding Path=Edit}" 
+                >
+            
+        </Button>
     </Grid>
 </UserControl>

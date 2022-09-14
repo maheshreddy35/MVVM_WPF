@@ -40,3 +40,10 @@ C:\Users\Admin\source\repos\MVVMApp\obj\Debug\net5.0-windows\View\AddContact.g.c
 C:\Users\Admin\source\repos\MVVMApp\obj\Debug\net5.0-windows\View\AddContact.baml
 C:\Users\Admin\source\repos\MVVMApp\obj\Debug\net5.0-windows\View\ProfileView.g.cs
 C:\Users\Admin\source\repos\MVVMApp\obj\Debug\net5.0-windows\View\ProfileView.baml
+C:\Users\Admin\source\repos\MVVMApp\obj\Debug\net5.0-windows\View\ContactView.g.cs
+C:\Users\Admin\source\repos\MVVMApp\bin\Debug\net5.0-windows\Newtonsoft.Json.dll
+C:\Users\Admin\source\repos\MVVMApp\obj\Debug\net5.0-windows\View\ContactView.baml
+C:\Users\Admin\source\repos\MVVMApp\obj\Debug\net5.0-windows\Themes\Generic.baml
+C:\Users\Admin\source\repos\MVVMApp\bin\Debug\net5.0-windows\MahApps.Metro.IconPacks.Core.dll
+C:\Users\Admin\source\repos\MVVMApp\bin\Debug\net5.0-windows\MahApps.Metro.IconPacks.Material.dll
+C:\Users\Admin\source\repos\MVVMApp\obj\Debug\net5.0-windows\App.baml

@@ -2,6 +2,20 @@
   "version": 3,
   "targets": {
     "net5.0-windows7.0": {
+      "MahApps.Metro.IconPacks.Material/4.11.0": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0-windows7.0/MahApps.Metro.IconPacks.Core.dll": {},
+          "lib/net5.0-windows7.0/MahApps.Metro.IconPacks.Material.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/MahApps.Metro.IconPacks.Core.dll": {},
+          "lib/net5.0-windows7.0/MahApps.Metro.IconPacks.Material.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
       "Microsoft.NETCore.Platforms/3.1.0": {
         "type": "package",
         "compile": {
@@ -32,6 +46,15 @@
             "assetType": "runtime",
             "rid": "win"
           }
+        }
+      },
+      "Newtonsoft.Json/7.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
       "runtime.native.System.Data.SqlClient.sni/4.7.0": {
@@ -134,6 +157,63 @@
     }
   },
   "libraries": {
+    "MahApps.Metro.IconPacks.Material/4.11.0": {
+      "sha512": "ZCuuxWHvXxl39XBYXk4PCMUVtw1pevT5AE1qsj7VRy2tRtDYbzHWYW0FbnH+Vf0rP7BogZrRlKns3zFEkDEjFQ==",
+      "type": "package",
+      "path": "mahapps.metro.iconpacks.material/4.11.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/MahApps.Metro.IconPacks.Core.dll",
+        "lib/net45/MahApps.Metro.IconPacks.Core.pdb",
+        "lib/net45/MahApps.Metro.IconPacks.Core.xml",
+        "lib/net45/MahApps.Metro.IconPacks.Material.dll",
+        "lib/net45/MahApps.Metro.IconPacks.Material.pdb",
+        "lib/net45/MahApps.Metro.IconPacks.Material.xml",
+        "lib/net46/MahApps.Metro.IconPacks.Core.dll",
+        "lib/net46/MahApps.Metro.IconPacks.Core.pdb",
+        "lib/net46/MahApps.Metro.IconPacks.Core.xml",
+        "lib/net46/MahApps.Metro.IconPacks.Material.dll",
+        "lib/net46/MahApps.Metro.IconPacks.Material.pdb",
+        "lib/net46/MahApps.Metro.IconPacks.Material.xml",
+        "lib/net47/MahApps.Metro.IconPacks.Core.dll",
+        "lib/net47/MahApps.Metro.IconPacks.Core.pdb",
+        "lib/net47/MahApps.Metro.IconPacks.Core.xml",
+        "lib/net47/MahApps.Metro.IconPacks.Material.dll",
+        "lib/net47/MahApps.Metro.IconPacks.Material.pdb",
+        "lib/net47/MahApps.Metro.IconPacks.Material.xml",
+        "lib/net5.0-windows7.0/MahApps.Metro.IconPacks.Core.dll",
+        "lib/net5.0-windows7.0/MahApps.Metro.IconPacks.Core.pdb",
+        "lib/net5.0-windows7.0/MahApps.Metro.IconPacks.Core.xml",
+        "lib/net5.0-windows7.0/MahApps.Metro.IconPacks.Material.dll",
+        "lib/net5.0-windows7.0/MahApps.Metro.IconPacks.Material.pdb",
+        "lib/net5.0-windows7.0/MahApps.Metro.IconPacks.Material.xml",
+        "lib/netcoreapp3.0/MahApps.Metro.IconPacks.Core.dll",
+        "lib/netcoreapp3.0/MahApps.Metro.IconPacks.Core.pdb",
+        "lib/netcoreapp3.0/MahApps.Metro.IconPacks.Core.xml",
+        "lib/netcoreapp3.0/MahApps.Metro.IconPacks.Material.dll",
+        "lib/netcoreapp3.0/MahApps.Metro.IconPacks.Material.pdb",
+        "lib/netcoreapp3.0/MahApps.Metro.IconPacks.Material.xml",
+        "lib/netcoreapp3.1/MahApps.Metro.IconPacks.Core.dll",
+        "lib/netcoreapp3.1/MahApps.Metro.IconPacks.Core.pdb",
+        "lib/netcoreapp3.1/MahApps.Metro.IconPacks.Core.xml",
+        "lib/netcoreapp3.1/MahApps.Metro.IconPacks.Material.dll",
+        "lib/netcoreapp3.1/MahApps.Metro.IconPacks.Material.pdb",
+        "lib/netcoreapp3.1/MahApps.Metro.IconPacks.Material.xml",
+        "lib/uap10.0.16299/MahApps.Metro.IconPacks.Core.dll",
+        "lib/uap10.0.16299/MahApps.Metro.IconPacks.Core.pdb",
+        "lib/uap10.0.16299/MahApps.Metro.IconPacks.Core.pri",
+        "lib/uap10.0.16299/MahApps.Metro.IconPacks.Core.xml",
+        "lib/uap10.0.16299/MahApps.Metro.IconPacks.Material.dll",
+        "lib/uap10.0.16299/MahApps.Metro.IconPacks.Material.pdb",
+        "lib/uap10.0.16299/MahApps.Metro.IconPacks.Material.pri",
+        "lib/uap10.0.16299/MahApps.Metro.IconPacks.Material.xml",
+        "lib/uap10.0.16299/MahApps.Metro.IconPacks.Material/MahApps.Metro.IconPacks.Material.xr.xml",
+        "logo_small.png",
+        "mahapps.metro.iconpacks.material.4.11.0.nupkg.sha512",
+        "mahapps.metro.iconpacks.material.nuspec"
+      ]
+    },
     "Microsoft.NETCore.Platforms/3.1.0": {
       "sha512": "z7aeg8oHln2CuNulfhiLYxCVMPEwBl3rzicjvIX+4sUuCwvXw5oXQEtbiU2c0z4qYL5L3Kmx0mMA/+t/SbY67w==",
       "type": "package",
@@ -196,6 +276,31 @@
         "runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.xml",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "Newtonsoft.Json/7.0.1": {
+      "sha512": "q3V4KLetMLnt1gpAVWgtXnHjKs0UG/RalBc29u2ZKxd5t5Ze4JBL5WiiYIklJyK/5CRiIiNwigVQUo0FgbsuWA==",
+      "type": "package",
+      "path": "newtonsoft.json/7.0.1",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll",
+        "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.xml",
+        "newtonsoft.json.7.0.1.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "tools/install.ps1"
       ]
     },
     "runtime.native.System.Data.SqlClient.sni/4.7.0": {
@@ -450,6 +555,8 @@
   },
   "projectFileDependencyGroups": {
     "net5.0-windows7.0": [
+      "MahApps.Metro.IconPacks.Material >= 4.11.0",
+      "Newtonsoft.Json >= 7.0.1",
       "System.Data.SqlClient >= 4.8.3"
     ]
   },
@@ -492,6 +599,14 @@
       "net5.0-windows7.0": {
         "targetAlias": "net5.0-windows",
         "dependencies": {
+          "MahApps.Metro.IconPacks.Material": {
+            "target": "Package",
+            "version": "[4.11.0, )"
+          },
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[7.0.1, )"
+          },
           "System.Data.SqlClient": {
             "target": "Package",
             "version": "[4.8.3, )"
@@ -518,5 +633,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Newtonsoft.Json 7.0.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Newtonsoft.Json",
+      "targetGraphs": [
+        "net5.0-windows7.0"
+      ]
+    }
+  ]
 }

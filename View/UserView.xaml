@@ -7,12 +7,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <ListView ItemsSource="{Binding Userlist}" Margin="233,81,233,147">
+        <ListView ItemsSource="{Binding Userlist}" Margin="233,81,141,147">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding FirstName}" Width="100"/>
-                    <GridViewColumn  Header="Age" DisplayMemberBinding="{Binding Email}" Width="100"/>
+                    <GridViewColumn Header="First Name" DisplayMemberBinding="{Binding FirstName}" Width="100"/>
+                    <GridViewColumn  Header="Last Name" DisplayMemberBinding="{Binding LastName}" Width="100"/>
+                    <GridViewColumn  Header="Mobile" DisplayMemberBinding="{Binding Mobile}" Width="100"/>
                     <GridViewColumn  Header="Address" DisplayMemberBinding="{Binding Address}" Width="100"/>
+                    
 
                 </GridView>
             </ListView.View>

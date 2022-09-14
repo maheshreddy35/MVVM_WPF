@@ -24,6 +24,7 @@
         <DataTemplate DataType = "{x:Type viewModels:LoginViewModel}">
             <views:LoginView/>
         </DataTemplate>
+        
 
 
     </Window.Resources>

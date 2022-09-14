@@ -50,6 +50,9 @@ namespace MVVMApp.ViewModel
                 case "profile":
                     CurrentViewModel = new ProfileViewModel();
                     break;
+                case "home":
+                    CurrentViewModel = new ContactViewModel();
+                    break;
                 
             }
         }

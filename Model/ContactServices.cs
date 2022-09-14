@@ -15,14 +15,14 @@ namespace MVVMApp.Model
         {
             try
             {
-                string email = Application.Current.Properties["mail"].ToString();
-                string name = user.FirstName+user.LastName;
+                string mobile = Application.Current.Properties["mail"].ToString();
+                string name = user.FirstName+" "+user.LastName;
                 string url = user.Image;
-                string frdemail = user.FrdEmail;
+                string frdmobile = user.FrdMobile;
 
                 SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=sample");
                 con.Open();
-                SqlCommand cmd = new SqlCommand("Insert into contact values('" + email + "','" + name + "','" + url + "','" + frdemail + "')", con);
+                SqlCommand cmd = new SqlCommand("Insert into contact values('" + mobile + "','" + name + "','" + url + "','" + frdmobile + "')", con);
                 cmd.CommandType = CommandType.Text;
                 cmd.ExecuteNonQuery();
                 con.Close();

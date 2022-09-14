@@ -31,12 +31,12 @@ namespace MVVMApp.Model
             set { lastName = value; OnPropertyChanged("LastName"); }
         }
 
-        private string email;
+        private string mobile;
 
-        public string Email
+        public string Mobile
         {
-            get { return email; }
-            set { email = value; OnPropertyChanged("Email"); }
+            get { return mobile; }
+            set { mobile = value; OnPropertyChanged("Mobile"); }
         }
 
         private string password;

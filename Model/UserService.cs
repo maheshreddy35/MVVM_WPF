@@ -29,10 +29,9 @@ namespace MVVMApp.Model
                 User emp = new User();
                 emp.FirstName = (string)dr[0];
                 emp.LastName = (string)dr[1];
-                emp.Email = (string)dr[2];
-                emp.Password = (string)dr[3];
-                emp.Address = (string)dr[4];
-
+                emp.Mobile = (string)dr[4];
+                emp.Password = (string)dr[2];
+                emp.Address = (string)dr[3];
                 userlist.Add(emp);
 
             }

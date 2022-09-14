@@ -17,12 +17,12 @@ namespace MVVMApp.Model
             get { return firstName; }
             set { firstName = value; OnPropertyChanged("FirstName"); }
         }
-        private string email;
+        private string mobile;
 
-        public string Email
+        public string Mobile
         {
-            get { return email; }
-            set { email = value; OnPropertyChanged("Email"); }
+            get { return mobile; }
+            set { mobile = value; OnPropertyChanged("Mobile"); }
         }
         private string lastName;
 
@@ -38,12 +38,12 @@ namespace MVVMApp.Model
             get { return image; }
             set { image = value; OnPropertyChanged("Image"); }
         }
-        private string frdEmail;
+        private string frdMobile;
 
-        public string FrdEmail
+        public string FrdMobile
         {
-            get { return frdEmail; }
-            set { frdEmail = value; OnPropertyChanged("FrdEmail"); }
+            get { return frdMobile; }
+            set { frdMobile = value; OnPropertyChanged("FrdMobile"); }
         }
     }
 }

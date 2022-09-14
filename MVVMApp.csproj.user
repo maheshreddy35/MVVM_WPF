@@ -10,6 +10,9 @@
     <Compile Update="View\AddContact.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\ContactView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\HomeWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -30,7 +33,13 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\AddContact.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ContactView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\HomeWindow.xaml">

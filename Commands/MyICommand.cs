@@ -66,4 +66,3 @@ namespace MVVMApp.Commands
         #endregion
     }
 }
-

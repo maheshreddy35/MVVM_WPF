@@ -23,5 +23,10 @@ namespace MVVMApp.View
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            pnl.Background = Brushes.Red;
+        }
     }
 }

@@ -41,20 +41,24 @@ namespace MVVMApp.ViewModel
         }
         public void Login()
         {
+
             HomeWindow home = new HomeWindow();
 
             
+
             try
             {
                 SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;Initial Catalog=sample");
                 con.Open();
-                SqlCommand cmd = new SqlCommand("Select * from Registration where Email='" + User.Email + "'  and password='" + User.Password + "'");
+                SqlCommand cmd = new SqlCommand("Select * from Registration where Mobile='" + User.Mobile + "'  and password='" + User.Password + "'");
                 cmd.Connection = con;
                 SqlDataReader dr = cmd.ExecuteReader();
                 if(dr.Read())
                 {
                     Application.Current.Properties["name"] = (string)dr[0] + (string)dr[1];
-                    Application.Current.Properties["mail"] = (string)dr[2];
+                    Application.Current.Properties["mail"] = (string)dr[4];
+                    
+
                     home.Show();
                     Errormessage = "";
                     

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\Admin\source\repos\MVVMApp\App.xaml
-783618980
+9787051970
 
-28-634723985
-194-1342553445
-MainWindow.xaml;View\AddContact.xaml;View\HomeWindow.xaml;View\LoginView.xaml;View\ProfileView.xaml;View\RegistrationView.xaml;View\UserView.xaml;
+361356134988
+1971773809746
+MainWindow.xaml;Themes\Generic.xaml;View\AddContact.xaml;View\ContactView.xaml;View\HomeWindow.xaml;View\LoginView.xaml;View\ProfileView.xaml;View\RegistrationView.xaml;View\UserView.xaml;
 
 False
 

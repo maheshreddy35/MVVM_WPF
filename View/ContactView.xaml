@@ -44,11 +44,12 @@
                     <TextBlock Text="{Binding Frd}" Margin="0,0,0,0" FontSize="17" Foreground="Red"></TextBlock>
                 </StackPanel>
                 
+                
             </StackPanel>
 
         </StackPanel>
 
-        <DataGrid FocusVisualStyle="{DynamicResource DataGridFocusVisualStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" ItemsSource="{Binding Contactlist}"
+        <DataGrid RowStyle="{DynamicResource DataGridRowStyle1}" FocusVisualStyle="{DynamicResource DataGridFocusVisualStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" ItemsSource="{Binding Contactlist}"
                   HorizontalAlignment="Left" 
                   VerticalAlignment="Center" 
                   RowHeight="30" ColumnWidth="100"
@@ -56,7 +57,8 @@
                   AutoGenerateColumns="False" Height="290"
                   ScrollViewer.VerticalScrollBarVisibility="Hidden"
                   ScrollViewer.HorizontalScrollBarVisibility="Hidden"
-                  IsTextSearchEnabled="True">
+                  IsTextSearchEnabled="True"
+                  SelectedItem="{Binding SelectedContact,UpdateSourceTrigger=PropertyChanged}">
 
             <DataGrid.Columns >
                 

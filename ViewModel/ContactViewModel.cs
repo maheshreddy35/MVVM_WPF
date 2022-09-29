@@ -3,6 +3,7 @@ using MVVMApp.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -12,7 +13,7 @@ using System.Windows.Media;
 
 namespace MVVMApp.ViewModel
 {
-    class ContactViewModel : ViewModelbase, INotifyPropertyChanged
+    class ContactViewModel : ViewModelbase
     {
         string ph = Application.Current.Properties["mail"].ToString();
         private List<Contlist> contactlist;
@@ -23,12 +24,12 @@ namespace MVVMApp.ViewModel
         }
 
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        //public event PropertyChangedEventHandler PropertyChanged;
 
-        private void NotifyPropertyChanged([CallerMemberName] string name = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
+        //private void NotifyPropertyChanged([CallerMemberName] string name = "")
+        //{
+        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        //}
 
         private string phone;
         public string Phone
@@ -37,7 +38,7 @@ namespace MVVMApp.ViewModel
             set
             {
                 phone = value;
-                NotifyPropertyChanged("Phone");
+                OnPropertyChanged("Phone");
             }
         }
 
@@ -48,7 +49,7 @@ namespace MVVMApp.ViewModel
             set
             {
                 frd = value;
-                NotifyPropertyChanged("Frd");
+                OnPropertyChanged("Frd");
             }
         }
 
@@ -59,7 +60,55 @@ namespace MVVMApp.ViewModel
             set
             {
                 person = value;
-                NotifyPropertyChanged("Person");
+                OnPropertyChanged("Person");
+            }
+        }
+
+        private string contactfrd;
+        public string ContactFrd
+        {
+            get { return contactfrd; }
+            set
+            {
+                contactfrd = value;
+                OnPropertyChanged("ContactFrd");
+            }
+        }
+
+        private string contactPerson;
+        public string ContactPerson
+        {
+            get { return contactPerson; }
+            set
+            {
+                contactPerson = value;
+                OnPropertyChanged("ContactPerson");
+            }
+        }
+
+        private Contlist selectedContact;
+        public Contlist SelectedContact
+        {
+            get { return selectedContact; }
+            set
+            {
+                selectedContact = value;
+                OnPropertyChanged("SelectedContact");
+                ContactPerson = SelectedContact.Name;
+                ContactFrd = SelectedContact.FrdMobile;
+                try
+                {
+                    SqlConnection con = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=sample;Integrated Security=true");
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("update contact set Name='"+ ContactPerson+"' where frdMobile='" + ContactFrd + "'", con);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
+                
+
             }
         }
 
@@ -71,7 +120,7 @@ namespace MVVMApp.ViewModel
             set
             {
                 selected = value;
-                NotifyPropertyChanged("Selected");
+                OnPropertyChanged("Selected");
                 Phone = Selected.Mobile;
                 Person = Selected.Name;
                 Frd = Selected.FrdMobile;

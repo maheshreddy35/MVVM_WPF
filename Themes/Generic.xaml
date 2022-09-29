@@ -7,13 +7,40 @@
 
 
     <Style TargetType="{x:Type local:Custombutton}" BasedOn = "{StaticResource {x:Type Button}}">
-        <Setter Property="Background" Value="LawnGreen"/>
-        <Setter Property="BorderBrush" Value="White"/>
-        <Setter Property="BorderThickness" Value="2"/>
-        <Setter Property="Foreground" Value="Black"></Setter>
+        
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="5,0,5,0" 
+                            Background="PaleTurquoise" 
+                            BorderBrush="AliceBlue" 
+                            BorderThickness="4"
+                            Padding="25,3,0,0"
+                            Height="35"
+                            Width="100"
+                            >
+                        <ContentPresenter Content="Login" >
+                            
+                        </ContentPresenter>
+                    </Border>
+                   
+                </ControlTemplate>
+                
+            </Setter.Value>
+            
+        </Setter>
+        
     </Style>
 
     
 
     
+
+    <Style TargetType="{x:Type local:CustomText}" BasedOn="{StaticResource {x:Type TextBlock} }">
+        <Setter Property="Foreground" Value="DarkGreen">
+        </Setter>
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="FontSize" Value="17"></Setter>
+        
+    </Style>
 </ResourceDictionary>
